@@ -12,11 +12,11 @@ const SearchFormComponent: React.FC<formProps> = (props: formProps) => {
     const [value, setValue] = useState('')
 
     return (
-        <form   onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
-                    event.preventDefault()
-                    props.fetchRecipes(value)
-                }}
-                style={{
+        <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
+            event.preventDefault()
+            props.fetchRecipes(value)
+        }}
+            style={{
                 display: 'flex',
                 marginTop: '20px',
                 justifyContent: 'space-around',

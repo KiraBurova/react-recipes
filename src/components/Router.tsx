@@ -7,8 +7,8 @@ import Recipe from './Recipe'
 const RouterComponent: React.SFC = () => {
   return (
     <BrowserRouter>
-        <Route path="/" exact component={App} />
-        <Route path="/recipes/:id" component={Recipe} />
+      <Route path="/" exact component={App} />
+      <Route path="/recipes/:id" component={Recipe} />
     </BrowserRouter>
   );
 }

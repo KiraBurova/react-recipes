@@ -9,14 +9,14 @@ import LinkButton from '../blocks/LinkButton';
 import { withStyles } from '@material-ui/styles';
 
 interface Recipe {
-    f2f_url: string
-    image_url: string
-    publisher: string
-    publisher_url: string
-    recipe_id: string
-    social_rank: number
-    source_url: string
-    title: string
+  f2f_url: string
+  image_url: string
+  publisher: string
+  publisher_url: string
+  recipe_id: string
+  social_rank: number
+  source_url: string
+  title: string
 }
 
 interface recipesProps {
@@ -39,27 +39,27 @@ const styles = {
   },
 };
 
-const RecipesCardComponent: any  = ({recipes, classes}: recipesProps) => (
+const RecipesCardComponent: any = ({ recipes, classes }: recipesProps) => (
   <div>
-    {recipes.map((recipe:any) => {
+    {recipes.map((recipe: any) => {
       return (
-          <Card key={recipe.recipe_id} className={classes!.card}>
-            <CardHeader
-              title={recipe.title}
-            />
-            <CardMedia
-                image={recipe.image_url}
-                title={recipe.title}
-                className={classes!.media}
-            />
-            <CardContent>
-            
+        <Card key={recipe.recipe_id} className={classes!.card}>
+          <CardHeader
+            title={recipe.title}
+          />
+          <CardMedia
+            image={recipe.image_url}
+            title={recipe.title}
+            className={classes!.media}
+          />
+          <CardContent>
+
             <LinkButton color="primary" to={`/recipes/${recipe.recipe_id}`}>Learn more</LinkButton>
-            </CardContent>
-          </Card>
+          </CardContent>
+        </Card>
       )
     })}
   </div>
 )
 
-export default  withStyles(styles)(RecipesCardComponent);
+export default withStyles(styles)(RecipesCardComponent);

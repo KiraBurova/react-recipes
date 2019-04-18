@@ -11,7 +11,7 @@ import SearchForm from './components/SearchForm'
 
 const App: React.FC = () => {
   const [recipes, setRecipes] = useState([]);
-  
+
   async function fetchRecipes(search: string) {
     const data = await fetch(`${SEARCH_PATH}key=${process.env.REACT_APP_API_KEY}&q=${search}&page=1 `);
     const response = await data.json();
@@ -19,21 +19,21 @@ const App: React.FC = () => {
     setRecipes(response.recipes);
   }
 
-    return (
-      <div className="App">
+  return (
+    <div className="App">
       <AppBar position="static" color="default">
-      <Toolbar>
+        <Toolbar>
           <Typography variant="h6" color="inherit">
             Photos
           </Typography>
-          </Toolbar>
+        </Toolbar>
       </AppBar>
       <div className="container">
-      <SearchForm fetchRecipes={fetchRecipes}></SearchForm>
-      {recipes && <RecipesCardComponent recipes={recipes}></RecipesCardComponent>}
-        </div>
+        <SearchForm fetchRecipes={fetchRecipes}></SearchForm>
+        {recipes && <RecipesCardComponent recipes={recipes}></RecipesCardComponent>}
       </div>
-    );
+    </div>
+  );
 }
 
 export default App;

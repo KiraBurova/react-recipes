@@ -27,22 +27,22 @@ interface Recipe {
 
 const styles = {
     media: {
-      height: 0,
-      paddingTop: '56.25%'
+        height: 0,
+        paddingTop: '56.25%'
     },
     card: {
-      maxWidth: 400,
+        maxWidth: 400,
     },
-  };
+};
 
-const RecipeCardComponent = ({match, classes}: any) => {
-    const [recipe, setRecipe] =  useState<Recipe | undefined>(undefined);
+const RecipeCardComponent = ({ match, classes }: any) => {
+    const [recipe, setRecipe] = useState<Recipe | undefined>(undefined);
 
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetch(`${GET_PATH}key=${process.env.REACT_APP_API_KEY}&rId=${match.params.id}`);
             const response = await data.json();
-        
+
             setRecipe(response.recipe);
         }
         fetchData();
@@ -50,29 +50,29 @@ const RecipeCardComponent = ({match, classes}: any) => {
 
     return <div>
         {recipe &&
-        <Card className={classes!.card}>
-            <Badge badgeContent={Math.floor(recipe.social_rank)}>
-                <CardHeader title={recipe!.title} subheader={recipe.publisher}>
-                </CardHeader>
-            </Badge>
-            <CardMedia 
-                image={recipe!.image_url}
-                className={classes!.media}
+            <Card className={classes!.card}>
+                <Badge badgeContent={Math.floor(recipe.social_rank)}>
+                    <CardHeader title={recipe!.title} subheader={recipe.publisher}>
+                    </CardHeader>
+                </Badge>
+                <CardMedia
+                    image={recipe!.image_url}
+                    className={classes!.media}
                 >
-            </CardMedia>
-            <CardContent>
-                <List component="nav">
-                <Typography component="h2">Ingredient</Typography>
-                {recipe.ingredients.map((ingredient, index) => {
-                   return   <ListItem key={index}>
+                </CardMedia>
+                <CardContent>
+                    <List component="nav">
+                        <Typography component="h2">Ingredient</Typography>
+                        {recipe.ingredients.map((ingredient, index) => {
+                            return <ListItem key={index}>
                                 <ListItemText primary={`- ${ingredient}`} />
                             </ListItem>
-                })}
-            </List>    
-            </CardContent>       
-        </Card>}
+                        })}
+                    </List>
+                </CardContent>
+            </Card>}
     </div>
 }
 
 
-export default  withStyles(styles)(RecipeCardComponent);
+export default withStyles(styles)(RecipeCardComponent);
