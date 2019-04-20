@@ -39,8 +39,8 @@ const styles = {
   },
 };
 
-const RecipesCardComponent: any = ({ recipes, classes }: recipesProps) => (
-  <div>
+const RecipesCardComponent: React.SFC<recipesProps> = ({ recipes, classes }: recipesProps) => (
+  <div className="container">
     {recipes.map((recipe: any) => {
       return (
         <Card key={recipe.recipe_id} className={classes!.card}>

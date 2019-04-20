@@ -4,12 +4,12 @@ import Button, { ButtonProps } from '@material-ui/core/Button';
 
 import { Link } from 'react-router-dom'
 
-interface LinkButtonProps extends ButtonProps {
+interface linkButtonProps extends ButtonProps {
   to: string;
   replace?: boolean;
 }
 
-const LinkButton = (props: LinkButtonProps) => (
+const LinkButton: React.SFC<linkButtonProps> = (props: linkButtonProps) => (
   <Button {...props} component={Link as any} />
 )
 

@@ -2,10 +2,6 @@ import React, { useEffect, useState, FormEvent } from 'react';
 
 import { SEARCH_PATH } from './config/constants'
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-
 import RecipesCardComponent from './components/Recipes'
 import SearchForm from './components/SearchForm'
 
@@ -21,13 +17,6 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <AppBar position="static" color="default">
-        <Toolbar>
-          <Typography variant="h6" color="inherit">
-            Photos
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <div className="container">
         <SearchForm fetchRecipes={fetchRecipes}></SearchForm>
         {recipes && <RecipesCardComponent recipes={recipes}></RecipesCardComponent>}
