@@ -17,17 +17,17 @@ interface Recipe {
   social_rank: number
   source_url: string
   title: string
-}
+};
 
 interface recipesProps {
   recipes: Recipe[],
   classes?: Classes
-}
+};
 
 interface Classes {
   media: string,
   card: string
-}
+};
 
 const styles = {
   media: {
@@ -36,6 +36,8 @@ const styles = {
   },
   card: {
     maxWidth: 400,
+    minWidth: 400,
+    marginBottom: 20
   },
 };
 

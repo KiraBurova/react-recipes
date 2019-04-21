@@ -4,7 +4,7 @@ import { GET_PATH } from '../config/constants'
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -13,7 +13,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import Badge from '@material-ui/core/Badge';
-import LinkButton from '../blocks/LinkButton'
+import Link from '@material-ui/core/Link';
 
 import { withStyles } from '@material-ui/styles';
 
@@ -35,12 +35,12 @@ const styles = {
         paddingTop: '56.25%'
     },
     card: {
-        maxWidth: 400,
-        marginBottom: 20
+        width: '100%',
     },
     badge: {
         top: 15,
-        right: 15
+        right: 15,
+        width: '60%',
     }
 };
 
@@ -60,20 +60,20 @@ const RecipeCardComponent: React.SFC<any> = ({ match, classes }: any) => {
 
     return <div className="container">
         {recipe &&
-            <Badge badgeContent={Math.floor(recipe.social_rank)} className={classes!.badge} color="secondary">
-                <Card className={classes!.card}>
+            <Badge badgeContent={Math.floor(recipe.social_rank)} className={classes.badge} color="secondary">
+                <Card className={classes.card}>
                     <CardHeader
                         subheader={recipe.publisher}
                         title={
-                            <LinkButton to={`/${recipe.source_url}`}>{recipe!.title}</LinkButton>
+                            <Link href={recipe.publisher_url} color="primary" className={classes.link}>{recipe.title}</Link>
                         }>
                     </CardHeader>
                     <CardMedia
-                        image={recipe!.image_url}
-                        className={classes!.media}
+                        image={recipe.image_url}
+                        className={classes.media}
                     >
                     </CardMedia>
-                    <CardActions>
+                    <CardContent>
                         <Button fullWidth onClick={() => setOpen(!open)} color="primary">
                             Ingredients
                         {open ? <ExpandLess /> : <ExpandMore />}
@@ -87,7 +87,7 @@ const RecipeCardComponent: React.SFC<any> = ({ match, classes }: any) => {
                                 })}
                             </List>
                         </Collapse>
-                    </CardActions>
+                    </CardContent>
                 </Card>
             </Badge>}
     </div>

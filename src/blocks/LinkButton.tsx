@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button, { ButtonProps } from '@material-ui/core/Button';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 interface linkButtonProps extends ButtonProps {
   to: string;

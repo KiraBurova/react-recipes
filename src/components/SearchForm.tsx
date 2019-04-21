@@ -9,12 +9,12 @@ interface formProps {
 }
 
 const SearchFormComponent: React.FC<formProps> = (props: formProps) => {
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('');
 
     return (
         <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault()
-            props.fetchRecipes(value)
+            event.preventDefault();
+            props.fetchRecipes(value);
         }}
             style={{
                 display: 'flex',

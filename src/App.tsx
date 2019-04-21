@@ -1,9 +1,9 @@
-import React, { useEffect, useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 
-import { SEARCH_PATH } from './config/constants'
+import { SEARCH_PATH } from './config/constants';
 
-import RecipesCardComponent from './components/Recipes'
-import SearchForm from './components/SearchForm'
+import RecipesCardComponent from './components/Recipes';
+import SearchForm from './components/SearchForm';
 
 const App: React.FC = () => {
   const [recipes, setRecipes] = useState([]);
